@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<ol class="breadcrumb">
+  <li><a href="/feed">Home</a></li>
+  <li class="active">Feed Detail</li>
+</ol>
+
+<div class="container">
+    <div class="text-right" style="margin-bottom: 10px;">
+    {{ form_start(delete_form) }}
+        <input type="submit" value="Delete" class="btn btn-default">
+    {{ form_end(delete_form) }}
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Feed Detail</h3>
+        </div>
+        <div class="panel-body">
+            <p>Id: {{ feed.id }}</p>
+            <p>Title: {{ feed.title }}</p>
+            <p>Description: {{ feed.description }}</p>
+            <p>Link: {{ feed.link }}</p>
+            <p>Category: {{ feed.category }}</p>
+            <p>Comments: {{ feed.comments }}</p>
+            <p>Public date: {{ feed.pubDate|date('Y-m-d H:i:s') }}</p>
+        </div>
+    </div>
+    <div class="form-group text-center">
+        <a href="{{ path('feed_edit', { 'id': feed.id }) }}" class="btn btn-default">Edit</a>
+    </div>
+</div>
+{% endblock %}
