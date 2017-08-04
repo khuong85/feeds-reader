@@ -33,7 +33,7 @@ class FeedController extends Controller
         $form->handleRequest($request);
 
         $category = '';
-        $limit = 5;
+        $limit = $this->getParameter('pagination_limit');
         $page = $request->get('page', 1);
         if($form->isSubmitted() && $form->isValid()){
             $searchForm = $form->getData();
